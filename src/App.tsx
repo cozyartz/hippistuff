@@ -4,7 +4,6 @@ import {
   Leaf, 
   Users, 
   BookOpen, 
-  Play, 
   MessageCircle,
   Calendar,
   Download,
@@ -13,24 +12,16 @@ import {
   X,
   ArrowRight,
   Star,
-  Globe,
   Recycle,
   Award,
-  User,
   MapPin,
   Clock,
   CheckCircle,
-  Camera,
-  Headphones,
   FileText,
   Video,
-  Coffee,
   Flower,
   Sun,
-  Moon,
-  Zap,
   TreePine,
-  Wind,
   Droplets,
   Instagram,
   Youtube,
@@ -38,14 +29,22 @@ import {
   Twitter,
   Feather,
   Mountain,
-  Waves
+  Waves,
+  ShoppingCart
 } from 'lucide-react';
+import { AffiliateTracker } from './utils/analytics';
+import { SearchBar } from './components/SearchBar';
+import { AffiliateDisclosure } from './components/AffiliateDisclosure';
+import { getFeaturedProducts, searchProducts, Product } from './data/products';
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrollY, setScrollY] = useState(0);
   const [email, setEmail] = useState('');
   const [activeTab, setActiveTab] = useState('blog');
+  const [searchTerm, setSearchTerm] = useState('');
+  const [searchResults, setSearchResults] = useState<Product[]>([]);
+  const [showSearchResults, setShowSearchResults] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
@@ -60,9 +59,29 @@ function App() {
 
   const handleNewsletterSignup = (e: React.FormEvent) => {
     e.preventDefault();
-    // Newsletter signup logic would go here
+    const tracker = AffiliateTracker.getInstance();
+    tracker.trackNewsletterSignup();
     alert('Welcome to the Hippie Digest! 🌿');
     setEmail('');
+  };
+
+  const handleSearch = (query: string) => {
+    setSearchTerm(query);
+    if (query.trim()) {
+      const results = searchProducts(query);
+      setSearchResults(results);
+      setShowSearchResults(true);
+    } else {
+      setSearchResults([]);
+      setShowSearchResults(false);
+    }
+  };
+
+  const handleAffiliateClick = (product: Product) => {
+    const tracker = AffiliateTracker.getInstance();
+    tracker.trackAffiliateClick(product.id, product.name, product.category);
+    tracker.trackProductView(product.name, product.category, product.price);
+    window.open(product.affiliateUrl, '_blank', 'noopener,noreferrer');
   };
 
   return (
@@ -86,6 +105,9 @@ function App() {
             <div className="hidden md:flex items-center space-x-8">
               <button onClick={() => scrollToSection('content')} className="text-gray-700 hover:text-green-600 transition-colors font-light">
                 Content
+              </button>
+              <button onClick={() => scrollToSection('products')} className="text-gray-700 hover:text-green-600 transition-colors font-light">
+                Sacred Shop
               </button>
               <button onClick={() => scrollToSection('community')} className="text-gray-700 hover:text-green-600 transition-colors font-light">
                 Community
@@ -113,6 +135,9 @@ function App() {
               <div className="px-4 py-6 space-y-4">
                 <button onClick={() => scrollToSection('content')} className="block w-full text-left text-gray-700 hover:text-green-600 transition-colors font-light">
                   Content
+                </button>
+                <button onClick={() => scrollToSection('products')} className="block w-full text-left text-gray-700 hover:text-green-600 transition-colors font-light">
+                  Sacred Shop
                 </button>
                 <button onClick={() => scrollToSection('community')} className="block w-full text-left text-gray-700 hover:text-green-600 transition-colors font-light">
                   Community
@@ -159,8 +184,15 @@ function App() {
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
               <button 
-                onClick={() => scrollToSection('community')}
+                onClick={() => scrollToSection('products')}
                 className="bg-gradient-to-r from-green-600 to-emerald-600 text-white px-8 py-4 rounded-full text-lg font-light hover:shadow-lg transition-all transform hover:scale-105 flex items-center gap-2"
+              >
+                <ShoppingCart className="w-5 h-5 stroke-1" />
+                Sacred Shop
+              </button>
+              <button 
+                onClick={() => scrollToSection('community')}
+                className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-8 py-4 rounded-full text-lg font-light hover:shadow-lg transition-all transform hover:scale-105 flex items-center gap-2"
               >
                 <Users className="w-5 h-5 stroke-1" />
                 Join Our Circle
@@ -315,6 +347,21 @@ function App() {
                       <ArrowRight className="w-4 h-4 stroke-1" />
                     </button>
                   </div>
+                  
+                  {/* Affiliate Product Suggestions */}
+                  <div className="mt-4 pt-4 border-t border-green-100">
+                    <p className="text-xs text-gray-500 mb-2 font-light">🛍️ Sacred Tools for This Practice:</p>
+                    <div className="flex flex-wrap gap-2">
+                      {["Organic Materials", "Sacred Tools", "Mindful Supplies"].map((product, idx) => (
+                        <button 
+                          key={idx}
+                          className="text-xs bg-green-50 text-green-700 px-2 py-1 rounded-full hover:bg-green-100 transition-colors border border-green-200"
+                        >
+                          {product}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
                 </div>
               </div>
             ))}
@@ -454,6 +501,222 @@ function App() {
               <button className="w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white px-8 py-4 rounded-full text-lg font-light hover:shadow-lg transition-all transform hover:scale-105">
                 Join Our Sacred Circle
               </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Sacred Products Section */}
+      <section id="products" className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-green-50 to-emerald-50">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <div className="flex justify-center mb-4">
+              <Heart className="w-12 h-12 text-green-600 stroke-1" />
+            </div>
+            <h2 className="text-4xl md:text-5xl font-light text-gray-800 mb-6">
+              Sacred Essentials
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto font-light">
+              Discover earth-friendly products that align with your conscious lifestyle
+            </p>
+          </div>
+
+          {/* Product Categories */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+            {[
+              {
+                title: "Meditation & Mindfulness",
+                description: "Sacred tools for inner peace",
+                image: "https://images.pexels.com/photos/3775121/pexels-photo-3775121.jpeg?auto=compress&cs=tinysrgb&w=600",
+                count: "47 items",
+                icon: Sun
+              },
+              {
+                title: "Natural Beauty",
+                description: "Pure, earth-sourced essentials",
+                image: "https://images.pexels.com/photos/4735905/pexels-photo-4735905.jpeg?auto=compress&cs=tinysrgb&w=600",
+                count: "32 items",
+                icon: Flower
+              },
+              {
+                title: "Sustainable Living",
+                description: "Zero-waste lifestyle essentials",
+                image: "https://images.pexels.com/photos/4099123/pexels-photo-4099123.jpeg?auto=compress&cs=tinysrgb&w=600",
+                count: "28 items",
+                icon: Recycle
+              },
+              {
+                title: "Sacred Spaces",
+                description: "Create your peaceful sanctuary",
+                image: "https://images.pexels.com/photos/3951626/pexels-photo-3951626.jpeg?auto=compress&cs=tinysrgb&w=600",
+                count: "19 items",
+                icon: TreePine
+              }
+            ].map((category, index) => (
+              <div key={index} className="bg-white/80 backdrop-blur-sm rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all transform hover:-translate-y-1 group border border-green-100">
+                <div className="relative">
+                  <img 
+                    src={category.image} 
+                    alt={category.title}
+                    className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+                  <div className="absolute bottom-4 left-4 right-4">
+                    <div className="flex items-center justify-between">
+                      <div className="bg-white/90 backdrop-blur-sm p-2 rounded-full">
+                        <category.icon className="w-5 h-5 text-green-600 stroke-1" />
+                      </div>
+                      <span className="text-white text-sm font-light bg-black/30 backdrop-blur-sm px-3 py-1 rounded-full">
+                        {category.count}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-light text-gray-800 mb-2 group-hover:text-green-700 transition-colors">
+                    {category.title}
+                  </h3>
+                  <p className="text-gray-600 font-light mb-4">{category.description}</p>
+                  <button className="w-full bg-gradient-to-r from-green-600 to-emerald-600 text-white py-2 rounded-lg font-light hover:shadow-md transition-all">
+                    Explore Collection
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Affiliate Disclosure */}
+          <AffiliateDisclosure />
+
+          {/* Search Bar */}
+          <div className="mb-8 flex justify-center">
+            <SearchBar 
+              onSearch={handleSearch}
+              placeholder="Search sacred products and wisdom..."
+              className="max-w-md w-full"
+            />
+          </div>
+
+          {/* Search Results */}
+          {showSearchResults && (
+            <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-sm border border-green-100 mb-8">
+              <h3 className="text-2xl font-light text-gray-800 mb-6">
+                Search Results for "{searchTerm}"
+              </h3>
+              {searchResults.length > 0 ? (
+                <div className="grid md:grid-cols-3 gap-8">
+                  {searchResults.map((product) => (
+                    <div key={product.id} className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all group">
+                      <div className="relative">
+                        <img 
+                          src={product.image} 
+                          alt={product.name}
+                          className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500"
+                        />
+                        {product.originalPrice && (
+                          <div className="absolute top-4 left-4">
+                            <span className="bg-green-600 text-white px-3 py-1 rounded-full text-sm font-light">
+                              Save {Math.round(((parseFloat(product.originalPrice.replace('$', '')) - parseFloat(product.price.replace('$', ''))) / parseFloat(product.originalPrice.replace('$', ''))) * 100)}%
+                            </span>
+                          </div>
+                        )}
+                        <div className="absolute top-4 right-4">
+                          <button className="bg-white/90 backdrop-blur-sm p-2 rounded-full hover:bg-white transition-colors">
+                            <Heart className="w-4 h-4 text-gray-600 stroke-1" />
+                          </button>
+                        </div>
+                      </div>
+                      <div className="p-6">
+                        <h4 className="text-lg font-light text-gray-800 mb-2">{product.name}</h4>
+                        <p className="text-gray-600 text-sm mb-3 font-light">{product.description}</p>
+                        <div className="flex items-center gap-2 mb-3">
+                          <div className="flex items-center">
+                            {[...Array(5)].map((_, i) => (
+                              <Star key={i} className={`w-4 h-4 ${i < Math.floor(product.rating) ? 'text-amber-400 fill-current' : 'text-gray-300'} stroke-1`} />
+                            ))}
+                          </div>
+                          <span className="text-sm text-gray-500 font-light">({product.reviews})</span>
+                        </div>
+                        <div className="flex items-center justify-between mb-4">
+                          <div className="flex items-center gap-2">
+                            <span className="text-2xl font-light text-green-600">{product.price}</span>
+                            {product.originalPrice && (
+                              <span className="text-sm text-gray-500 line-through font-light">{product.originalPrice}</span>
+                            )}
+                          </div>
+                        </div>
+                        <button 
+                          onClick={() => handleAffiliateClick(product)}
+                          className="w-full bg-gradient-to-r from-green-600 to-emerald-600 text-white py-3 rounded-lg font-light hover:shadow-md transition-all"
+                        >
+                          Add to Sacred Collection
+                        </button>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <div className="text-center py-8">
+                  <p className="text-gray-500 font-light">No products found for "{searchTerm}"</p>
+                  <p className="text-sm text-gray-400 mt-2">Try searching for meditation, natural, organic, or sustainable</p>
+                </div>
+              )}
+            </div>
+          )}
+
+          {/* Featured Products */}
+          <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-sm border border-green-100">
+            <h3 className="text-2xl font-light text-gray-800 mb-8 text-center">Community Favorites</h3>
+            <div className="grid md:grid-cols-3 gap-8">
+              {getFeaturedProducts().map((product) => (
+                <div key={product.id} className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all group">
+                  <div className="relative">
+                    <img 
+                      src={product.image} 
+                      alt={product.name}
+                      className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                    {product.originalPrice && (
+                      <div className="absolute top-4 left-4">
+                        <span className="bg-green-600 text-white px-3 py-1 rounded-full text-sm font-light">
+                          Save {Math.round(((parseFloat(product.originalPrice.replace('$', '')) - parseFloat(product.price.replace('$', ''))) / parseFloat(product.originalPrice.replace('$', ''))) * 100)}%
+                        </span>
+                      </div>
+                    )}
+                    <div className="absolute top-4 right-4">
+                      <button className="bg-white/90 backdrop-blur-sm p-2 rounded-full hover:bg-white transition-colors">
+                        <Heart className="w-4 h-4 text-gray-600 stroke-1" />
+                      </button>
+                    </div>
+                  </div>
+                  <div className="p-6">
+                    <h4 className="text-lg font-light text-gray-800 mb-2">{product.name}</h4>
+                    <p className="text-gray-600 text-sm mb-3 font-light">{product.description}</p>
+                    <div className="flex items-center gap-2 mb-3">
+                      <div className="flex items-center">
+                        {[...Array(5)].map((_, i) => (
+                          <Star key={i} className={`w-4 h-4 ${i < Math.floor(product.rating) ? 'text-amber-400 fill-current' : 'text-gray-300'} stroke-1`} />
+                        ))}
+                      </div>
+                      <span className="text-sm text-gray-500 font-light">({product.reviews})</span>
+                    </div>
+                    <div className="flex items-center justify-between mb-4">
+                      <div className="flex items-center gap-2">
+                        <span className="text-2xl font-light text-green-600">{product.price}</span>
+                        {product.originalPrice && (
+                          <span className="text-sm text-gray-500 line-through font-light">{product.originalPrice}</span>
+                        )}
+                      </div>
+                    </div>
+                    <button 
+                      onClick={() => handleAffiliateClick(product)}
+                      className="w-full bg-gradient-to-r from-green-600 to-emerald-600 text-white py-3 rounded-lg font-light hover:shadow-md transition-all"
+                    >
+                      Add to Sacred Collection
+                    </button>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
@@ -746,6 +1009,7 @@ function App() {
               <h4 className="text-lg font-light mb-6">Sacred Paths</h4>
               <ul className="space-y-3 text-gray-300 font-light">
                 <li><button onClick={() => scrollToSection('content')} className="hover:text-green-400 transition-colors">Wisdom Library</button></li>
+                <li><button onClick={() => scrollToSection('products')} className="hover:text-green-400 transition-colors">Sacred Shop</button></li>
                 <li><button onClick={() => scrollToSection('community')} className="hover:text-green-400 transition-colors">Sacred Circle</button></li>
                 <li><button onClick={() => scrollToSection('education')} className="hover:text-green-400 transition-colors">Ancient Wisdom</button></li>
                 <li><button onClick={() => scrollToSection('newsletter')} className="hover:text-green-400 transition-colors">Hippie Digest</button></li>
