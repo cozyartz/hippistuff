@@ -28,7 +28,6 @@ import {
   Facebook,
   Twitter,
   Feather,
-  Mountain,
   Waves,
   ShoppingCart
 } from 'lucide-react';
@@ -85,37 +84,37 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-50 via-blue-50 to-amber-50">
+    <div className="min-h-screen bg-white font-['Inter'] text-gray-900">
       {/* Navigation */}
       <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        scrollY > 50 ? 'bg-white/95 backdrop-blur-sm shadow-sm border-b border-green-100' : 'bg-transparent'
+        scrollY > 50 ? 'bg-white/95 backdrop-blur-md shadow-lg border-b border-gray-100' : 'bg-transparent'
       }`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-4">
             <div className="flex items-center space-x-3">
-              <div className="w-10 h-10 bg-gradient-to-br from-green-600 to-emerald-700 rounded-full flex items-center justify-center">
-                <Leaf className="w-6 h-6 text-white stroke-1" />
+              <div className="w-10 h-10 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-xl flex items-center justify-center shadow-sm">
+                <Leaf className="w-5 h-5 text-white" />
               </div>
-              <span className="text-2xl font-light bg-gradient-to-r from-green-700 to-emerald-600 bg-clip-text text-transparent">
+              <span className="text-2xl font-semibold text-gray-900">
                 HippieStuff
               </span>
             </div>
 
             {/* Desktop Menu */}
             <div className="hidden md:flex items-center space-x-8">
-              <button onClick={() => scrollToSection('content')} className="text-gray-700 hover:text-green-600 transition-colors font-light">
+              <button onClick={() => scrollToSection('content')} className="text-gray-600 hover:text-emerald-600 transition-colors font-medium">
                 Content
               </button>
-              <button onClick={() => scrollToSection('products')} className="text-gray-700 hover:text-green-600 transition-colors font-light">
-                Sacred Shop
+              <button onClick={() => scrollToSection('products')} className="text-gray-600 hover:text-emerald-600 transition-colors font-medium">
+                Shop
               </button>
-              <button onClick={() => scrollToSection('community')} className="text-gray-700 hover:text-green-600 transition-colors font-light">
+              <button onClick={() => scrollToSection('community')} className="text-gray-600 hover:text-emerald-600 transition-colors font-medium">
                 Community
               </button>
-              <button onClick={() => scrollToSection('education')} className="text-gray-700 hover:text-green-600 transition-colors font-light">
+              <button onClick={() => scrollToSection('education')} className="text-gray-600 hover:text-emerald-600 transition-colors font-medium">
                 Learn
               </button>
-              <button onClick={() => scrollToSection('newsletter')} className="bg-gradient-to-r from-green-600 to-emerald-600 text-white px-6 py-2 rounded-full hover:shadow-md transition-all font-light">
+              <button onClick={() => scrollToSection('newsletter')} className="bg-emerald-600 text-white px-6 py-2.5 rounded-lg hover:bg-emerald-700 transition-all font-medium shadow-sm">
                 Join Us
               </button>
             </div>
@@ -131,21 +130,21 @@ function App() {
 
           {/* Mobile Menu */}
           {isMenuOpen && (
-            <div className="md:hidden bg-white/95 backdrop-blur-sm border-t border-green-100">
+            <div className="md:hidden bg-white/95 backdrop-blur-md border-t border-gray-100">
               <div className="px-4 py-6 space-y-4">
-                <button onClick={() => scrollToSection('content')} className="block w-full text-left text-gray-700 hover:text-green-600 transition-colors font-light">
+                <button onClick={() => scrollToSection('content')} className="block w-full text-left text-gray-700 hover:text-emerald-600 transition-colors font-medium">
                   Content
                 </button>
-                <button onClick={() => scrollToSection('products')} className="block w-full text-left text-gray-700 hover:text-green-600 transition-colors font-light">
-                  Sacred Shop
+                <button onClick={() => scrollToSection('products')} className="block w-full text-left text-gray-700 hover:text-emerald-600 transition-colors font-medium">
+                  Shop
                 </button>
-                <button onClick={() => scrollToSection('community')} className="block w-full text-left text-gray-700 hover:text-green-600 transition-colors font-light">
+                <button onClick={() => scrollToSection('community')} className="block w-full text-left text-gray-700 hover:text-emerald-600 transition-colors font-medium">
                   Community
                 </button>
-                <button onClick={() => scrollToSection('education')} className="block w-full text-left text-gray-700 hover:text-green-600 transition-colors font-light">
+                <button onClick={() => scrollToSection('education')} className="block w-full text-left text-gray-700 hover:text-emerald-600 transition-colors font-medium">
                   Learn
                 </button>
-                <button onClick={() => scrollToSection('newsletter')} className="bg-gradient-to-r from-green-600 to-emerald-600 text-white px-6 py-2 rounded-full hover:shadow-md transition-all w-full font-light">
+                <button onClick={() => scrollToSection('newsletter')} className="bg-emerald-600 text-white px-6 py-2.5 rounded-lg hover:bg-emerald-700 transition-all w-full font-medium">
                   Join Us
                 </button>
               </div>
@@ -155,102 +154,104 @@ function App() {
       </nav>
 
       {/* Hero Section */}
-      <section className="pt-20 pb-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
-        {/* Floating Elements */}
-        <div className="absolute top-32 left-10 w-20 h-20 opacity-10">
-          <TreePine className="w-full h-full text-green-600 stroke-1" />
-        </div>
-        <div className="absolute top-40 right-16 w-16 h-16 opacity-10">
-          <Flower className="w-full h-full text-amber-600 stroke-1" />
-        </div>
-        <div className="absolute bottom-20 left-20 w-24 h-24 opacity-10">
-          <Mountain className="w-full h-full text-blue-600 stroke-1" />
-        </div>
+      <section className="pt-32 pb-24 px-4 sm:px-6 lg:px-8 relative bg-gradient-to-b from-gray-50 to-white">
+        {/* Modern geometric decoration */}
+        <div className="absolute top-20 right-20 w-32 h-32 bg-gradient-to-br from-emerald-100 to-emerald-200 rounded-full opacity-60 blur-2xl"></div>
+        <div className="absolute bottom-20 left-20 w-40 h-40 bg-gradient-to-br from-teal-100 to-cyan-200 rounded-full opacity-40 blur-3xl"></div>
         
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           <div className="text-center">
-            <div className="relative inline-block">
-              <h1 className="text-5xl md:text-7xl font-light bg-gradient-to-r from-green-700 via-blue-600 to-amber-700 bg-clip-text text-transparent mb-6 leading-tight">
-                Peace, Love & 
-                <br />
-                Natural Living
-              </h1>
+            <div className="mb-8">
+              <span className="inline-flex items-center gap-2 bg-emerald-50 text-emerald-700 px-4 py-2 rounded-full text-sm font-medium border border-emerald-200">
+                <Leaf className="w-4 h-4" />
+                Modern Conscious Living
+              </span>
             </div>
             
-            <p className="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed font-light">
-              Welcome to the serene online sanctuary for modern earth-lovers, conscious souls, and mindful beings. 
-              Discover sustainable wisdom, connect with kindred spirits, and nurture positive transformation.
+            <h1 className="text-5xl md:text-7xl font-bold text-gray-900 mb-6 leading-tight tracking-tight">
+              Elevate Your
+              <span className="bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent block">
+                Conscious Lifestyle
+              </span>
+            </h1>
+            
+            <p className="text-xl text-gray-600 mb-12 max-w-3xl mx-auto leading-relaxed">
+              Discover premium sustainable products, mindful practices, and connect with a community 
+              that shares your values. Transform your daily routine into purposeful living.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
               <button 
                 onClick={() => scrollToSection('products')}
-                className="bg-gradient-to-r from-green-600 to-emerald-600 text-white px-8 py-4 rounded-full text-lg font-light hover:shadow-lg transition-all transform hover:scale-105 flex items-center gap-2"
+                className="bg-emerald-600 text-white px-8 py-4 rounded-xl text-lg font-semibold hover:bg-emerald-700 transition-all shadow-lg hover:shadow-xl flex items-center gap-2 group"
               >
-                <ShoppingCart className="w-5 h-5 stroke-1" />
-                Sacred Shop
+                <ShoppingCart className="w-5 h-5 group-hover:scale-110 transition-transform" />
+                Shop Now
               </button>
               <button 
                 onClick={() => scrollToSection('community')}
-                className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-8 py-4 rounded-full text-lg font-light hover:shadow-lg transition-all transform hover:scale-105 flex items-center gap-2"
+                className="border-2 border-emerald-600 text-emerald-600 px-8 py-4 rounded-xl text-lg font-semibold hover:bg-emerald-600 hover:text-white transition-all flex items-center gap-2"
               >
-                <Users className="w-5 h-5 stroke-1" />
-                Join Our Circle
-              </button>
-              <button 
-                onClick={() => scrollToSection('content')}
-                className="border-2 border-green-600 text-green-600 px-8 py-4 rounded-full text-lg font-light hover:bg-green-600 hover:text-white transition-all flex items-center gap-2"
-              >
-                <ArrowRight className="w-5 h-5 stroke-1" />
-                Explore Wisdom
+                <Users className="w-5 h-5" />
+                Join Community
               </button>
             </div>
 
-            {/* Nature-inspired decorative elements */}
-            <div className="flex justify-center items-center gap-8 opacity-30">
-              <Leaf className="w-8 h-8 text-green-600 stroke-1" />
-              <div className="w-2 h-2 bg-green-600 rounded-full"></div>
-              <Sun className="w-8 h-8 text-amber-600 stroke-1" />
-              <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
-              <Waves className="w-8 h-8 text-blue-600 stroke-1" />
+            {/* Modern stats/social proof */}
+            <div className="grid grid-cols-3 gap-8 max-w-2xl mx-auto">
+              <div className="text-center">
+                <div className="text-3xl font-bold text-gray-900 mb-1">50K+</div>
+                <div className="text-sm text-gray-600 font-medium">Active Members</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-gray-900 mb-1">1M+</div>
+                <div className="text-sm text-gray-600 font-medium">Products Sold</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-gray-900 mb-1">98%</div>
+                <div className="text-sm text-gray-600 font-medium">Satisfaction</div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Content Hub Section */}
-      <section id="content" className="py-20 px-4 sm:px-6 lg:px-8 bg-white/60 backdrop-blur-sm">
+      <section id="content" className="py-24 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <div className="flex justify-center mb-4">
-              <BookOpen className="w-12 h-12 text-green-600 stroke-1" />
+          <div className="text-center mb-20">
+            <div className="mb-6">
+              <span className="inline-flex items-center gap-2 bg-blue-50 text-blue-700 px-4 py-2 rounded-full text-sm font-medium border border-blue-200">
+                <BookOpen className="w-4 h-4" />
+                Latest Content
+              </span>
             </div>
-            <h2 className="text-4xl md:text-5xl font-light text-gray-800 mb-6">
-              Wisdom Library
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+              Wisdom & Insights
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto font-light">
-              Discover inspiring content about earth-conscious living, ancient wisdom, and mindful practices
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Discover inspiring content about sustainable living, mindfulness, and conscious choices
             </p>
           </div>
 
           {/* Content Tabs */}
-          <div className="flex flex-wrap justify-center mb-12 gap-4">
+          <div className="flex flex-wrap justify-center mb-16 gap-2">
             {[
-              { id: 'blog', label: 'Sacred Writings', icon: FileText },
-              { id: 'videos', label: 'Visual Journeys', icon: Video },
-              { id: 'guides', label: 'Earth Gatherings', icon: MapPin },
-              { id: 'diy', label: 'Craft Wisdom', icon: Flower }
+              { id: 'blog', label: 'Articles', icon: FileText },
+              { id: 'videos', label: 'Videos', icon: Video },
+              { id: 'guides', label: 'Guides', icon: MapPin },
+              { id: 'diy', label: 'DIY Projects', icon: Flower }
             ].map((tab) => (
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`flex items-center gap-2 px-6 py-3 rounded-full transition-all font-light ${
+                className={`flex items-center gap-2 px-6 py-3 rounded-lg transition-all font-medium ${
                   activeTab === tab.id
-                    ? 'bg-gradient-to-r from-green-600 to-emerald-600 text-white shadow-md'
-                    : 'bg-white/80 text-gray-700 hover:bg-white border border-green-100'
+                    ? 'bg-emerald-600 text-white shadow-sm'
+                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                 }`}
               >
-                <tab.icon className="w-5 h-5 stroke-1" />
+                <tab.icon className="w-4 h-4" />
                 {tab.label}
               </button>
             ))}
@@ -260,55 +261,55 @@ function App() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
-                title: "The Sacred Art of Natural Dyeing",
-                category: "Ancient Crafts",
+                title: "The Art of Sustainable Living",
+                category: "Lifestyle",
                 image: "https://images.pexels.com/photos/4321186/pexels-photo-4321186.jpeg?auto=compress&cs=tinysrgb&w=600",
-                author: "River Moon",
+                author: "Emma Green",
                 date: "2 days ago",
                 readTime: "8 min read"
               },
               {
-                title: "Living in Harmony with Earth's Rhythms",
-                category: "Conscious Living",
+                title: "Mindful Daily Routines",
+                category: "Wellness",
                 image: "https://images.pexels.com/photos/4099464/pexels-photo-4099464.jpeg?auto=compress&cs=tinysrgb&w=600",
-                author: "Forest Sage",
+                author: "Alex Chen",
                 date: "1 week ago",
                 readTime: "12 min read"
               },
               {
-                title: "Desert Gathering: A Spiritual Journey",
-                category: "Sacred Journeys",
+                title: "Zero Waste Kitchen Essentials",
+                category: "Sustainability",
                 image: "https://images.pexels.com/photos/1190298/pexels-photo-1190298.jpeg?auto=compress&cs=tinysrgb&w=600",
-                author: "Desert Walker",
+                author: "Sarah Miller",
                 date: "3 days ago",
                 readTime: "15 min read"
               },
               {
-                title: "Morning Meditation with Mother Earth",
-                category: "Inner Peace",
+                title: "Meditation for Beginners",
+                category: "Mindfulness",
                 image: "https://images.pexels.com/photos/3822622/pexels-photo-3822622.jpeg?auto=compress&cs=tinysrgb&w=600",
-                author: "Dawn Keeper",
+                author: "Maya Patel",
                 date: "5 days ago",
                 readTime: "6 min read"
               },
               {
-                title: "Creating Sacred Spaces in Small Dwellings",
-                category: "Sacred Living",
+                title: "Creating Peaceful Spaces at Home",
+                category: "Home Design",
                 image: "https://images.pexels.com/photos/4207892/pexels-photo-4207892.jpeg?auto=compress&cs=tinysrgb&w=600",
-                author: "Space Weaver",
+                author: "David Kim",
                 date: "1 week ago",
                 readTime: "10 min read"
               },
               {
-                title: "Conscious Clothing: Thrift Store Treasures",
-                category: "Mindful Fashion",
+                title: "Sustainable Fashion Guide",
+                category: "Fashion",
                 image: "https://images.pexels.com/photos/3965545/pexels-photo-3965545.jpeg?auto=compress&cs=tinysrgb&w=600",
-                author: "Thread Spirit",
+                author: "Lisa Wang",
                 date: "4 days ago",
                 readTime: "7 min read"
               }
             ].map((item, index) => (
-              <div key={index} className="bg-white/80 backdrop-blur-sm rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all transform hover:-translate-y-1 group border border-green-50">
+              <div key={index} className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 group border border-gray-100">
                 <div className="relative">
                   <img 
                     src={item.image} 
@@ -316,269 +317,257 @@ function App() {
                     className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute top-4 left-4">
-                    <span className="bg-white/90 backdrop-blur-sm text-green-700 px-3 py-1 rounded-full text-sm font-light border border-green-100">
+                    <span className="bg-white/95 backdrop-blur-sm text-emerald-700 px-3 py-1.5 rounded-lg text-sm font-medium shadow-sm">
                       {item.category}
                     </span>
                   </div>
                   <div className="absolute top-4 right-4">
-                    <button className="bg-white/90 backdrop-blur-sm p-2 rounded-full hover:bg-white transition-colors border border-green-100">
-                      <Heart className="w-4 h-4 text-gray-600 stroke-1" />
+                    <button className="bg-white/95 backdrop-blur-sm p-2 rounded-lg hover:bg-white transition-colors shadow-sm">
+                      <Heart className="w-4 h-4 text-gray-600" />
                     </button>
                   </div>
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-light text-gray-800 mb-3 group-hover:text-green-700 transition-colors leading-tight">
+                  <h3 className="text-xl font-semibold text-gray-900 mb-3 group-hover:text-emerald-700 transition-colors leading-tight">
                     {item.title}
                   </h3>
-                  <div className="flex items-center justify-between text-sm text-gray-500 mb-4 font-light">
+                  <div className="flex items-center justify-between text-sm text-gray-500 mb-4">
                     <div className="flex items-center gap-2">
-                      <Feather className="w-4 h-4 stroke-1" />
+                      <div className="w-6 h-6 bg-gray-100 rounded-full flex items-center justify-center">
+                        <Feather className="w-3 h-3" />
+                      </div>
                       {item.author}
                     </div>
                     <div className="flex items-center gap-2">
-                      <Clock className="w-4 h-4 stroke-1" />
+                      <Clock className="w-4 h-4" />
                       {item.readTime}
                     </div>
                   </div>
                   <div className="flex items-center justify-between">
-                    <span className="text-sm text-gray-500 font-light">{item.date}</span>
-                    <button className="text-green-600 font-light hover:text-green-800 transition-colors flex items-center gap-1">
+                    <span className="text-sm text-gray-500">{item.date}</span>
+                    <button className="text-emerald-600 font-medium hover:text-emerald-700 transition-colors flex items-center gap-1 group/btn">
                       Read More
-                      <ArrowRight className="w-4 h-4 stroke-1" />
+                      <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
                     </button>
-                  </div>
-                  
-                  {/* Affiliate Product Suggestions */}
-                  <div className="mt-4 pt-4 border-t border-green-100">
-                    <p className="text-xs text-gray-500 mb-2 font-light">🛍️ Sacred Tools for This Practice:</p>
-                    <div className="flex flex-wrap gap-2">
-                      {["Organic Materials", "Sacred Tools", "Mindful Supplies"].map((product, idx) => (
-                        <button 
-                          key={idx}
-                          className="text-xs bg-green-50 text-green-700 px-2 py-1 rounded-full hover:bg-green-100 transition-colors border border-green-200"
-                        >
-                          {product}
-                        </button>
-                      ))}
-                    </div>
                   </div>
                 </div>
               </div>
             ))}
           </div>
 
-          <div className="text-center mt-12">
-            <button className="bg-gradient-to-r from-green-600 to-emerald-600 text-white px-8 py-4 rounded-full text-lg font-light hover:shadow-lg transition-all transform hover:scale-105">
-              Explore All Wisdom
+          <div className="text-center mt-16">
+            <button className="bg-emerald-600 text-white px-8 py-4 rounded-xl text-lg font-semibold hover:bg-emerald-700 transition-all shadow-lg hover:shadow-xl">
+              View All Articles
             </button>
           </div>
         </div>
       </section>
 
       {/* Community Platform Section */}
-      <section id="community" className="py-20 px-4 sm:px-6 lg:px-8 relative">
-        {/* Background decorative elements */}
-        <div className="absolute top-10 right-10 w-32 h-32 opacity-5">
-          <Sun className="w-full h-full text-amber-600 stroke-1" />
-        </div>
-        <div className="absolute bottom-10 left-10 w-28 h-28 opacity-5">
-          <TreePine className="w-full h-full text-green-600 stroke-1" />
-        </div>
-        
+      <section id="community" className="py-24 px-4 sm:px-6 lg:px-8 bg-gray-50">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <div className="flex justify-center mb-4">
-              <Users className="w-12 h-12 text-blue-600 stroke-1" />
+          <div className="text-center mb-20">
+            <div className="mb-6">
+              <span className="inline-flex items-center gap-2 bg-purple-50 text-purple-700 px-4 py-2 rounded-full text-sm font-medium border border-purple-200">
+                <Users className="w-4 h-4" />
+                Community
+              </span>
             </div>
-            <h2 className="text-4xl md:text-5xl font-light text-gray-800 mb-6">
-              Sacred Circle
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+              Join Our Community
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto font-light">
-              Connect with kindred spirits, share your journey, and grow together in harmony
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Connect with like-minded individuals, share experiences, and grow together
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Community Features */}
-            <div className="space-y-8">
-              <div className="flex items-start gap-4 p-6 bg-white/60 backdrop-blur-sm rounded-2xl shadow-sm hover:shadow-md transition-all border border-green-50">
-                <div className="bg-gradient-to-br from-blue-500 to-blue-600 p-3 rounded-full">
-                  <MessageCircle className="w-6 h-6 text-white stroke-1" />
+            <div className="space-y-6">
+              <div className="flex items-start gap-4 p-6 bg-white rounded-xl shadow-sm hover:shadow-md transition-all border border-gray-100">
+                <div className="bg-blue-500 p-3 rounded-lg shadow-sm">
+                  <MessageCircle className="w-6 h-6 text-white" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-light text-gray-800 mb-2">Wisdom Circles</h3>
-                  <p className="text-gray-600 font-light">
-                    Share insights on conscious living, earth wisdom, and spiritual growth in our nurturing forums
+                  <h3 className="text-xl font-semibold text-gray-900 mb-2">Discussion Forums</h3>
+                  <p className="text-gray-600">
+                    Share insights and connect with our community through engaging discussions
                   </p>
                 </div>
               </div>
 
-              <div className="flex items-start gap-4 p-6 bg-white/60 backdrop-blur-sm rounded-2xl shadow-sm hover:shadow-md transition-all border border-green-50">
-                <div className="bg-gradient-to-br from-green-500 to-emerald-600 p-3 rounded-full">
-                  <Calendar className="w-6 h-6 text-white stroke-1" />
+              <div className="flex items-start gap-4 p-6 bg-white rounded-xl shadow-sm hover:shadow-md transition-all border border-gray-100">
+                <div className="bg-emerald-500 p-3 rounded-lg shadow-sm">
+                  <Calendar className="w-6 h-6 text-white" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-light text-gray-800 mb-2">Earth Gatherings</h3>
-                  <p className="text-gray-600 font-light">
-                    Join local ceremonies, workshops, and mindful gatherings happening in your sacred space
+                  <h3 className="text-xl font-semibold text-gray-900 mb-2">Events & Workshops</h3>
+                  <p className="text-gray-600">
+                    Participate in virtual and local events focused on sustainable living
                   </p>
                 </div>
               </div>
 
-              <div className="flex items-start gap-4 p-6 bg-white/60 backdrop-blur-sm rounded-2xl shadow-sm hover:shadow-md transition-all border border-green-50">
-                <div className="bg-gradient-to-br from-amber-500 to-orange-500 p-3 rounded-full">
-                  <Award className="w-6 h-6 text-white stroke-1" />
+              <div className="flex items-start gap-4 p-6 bg-white rounded-xl shadow-sm hover:shadow-md transition-all border border-gray-100">
+                <div className="bg-amber-500 p-3 rounded-lg shadow-sm">
+                  <Award className="w-6 h-6 text-white" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-light text-gray-800 mb-2">Spirit Recognition</h3>
-                  <p className="text-gray-600 font-light">
-                    Receive sacred symbols and energy points for sharing wisdom, helping others, and staying present
+                  <h3 className="text-xl font-semibold text-gray-900 mb-2">Rewards Program</h3>
+                  <p className="text-gray-600">
+                    Earn points and recognition for contributing to our community
                   </p>
                 </div>
               </div>
 
-              <div className="flex items-start gap-4 p-6 bg-white/60 backdrop-blur-sm rounded-2xl shadow-sm hover:shadow-md transition-all border border-green-50">
-                <div className="bg-gradient-to-br from-purple-500 to-indigo-500 p-3 rounded-full">
-                  <Star className="w-6 h-6 text-white stroke-1" />
+              <div className="flex items-start gap-4 p-6 bg-white rounded-xl shadow-sm hover:shadow-md transition-all border border-gray-100">
+                <div className="bg-purple-500 p-3 rounded-lg shadow-sm">
+                  <Star className="w-6 h-6 text-white" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-light text-gray-800 mb-2">Soul Expressions</h3>
-                  <p className="text-gray-600 font-light">
-                    Share your creative projects, transformation stories, and artistic expressions with the tribe
+                  <h3 className="text-xl font-semibold text-gray-900 mb-2">Share Your Story</h3>
+                  <p className="text-gray-600">
+                    Showcase your sustainable lifestyle journey and inspire others
                   </p>
                 </div>
               </div>
             </div>
 
             {/* Community Testimonials */}
-            <div className="space-y-8">
-              <div className="bg-gradient-to-br from-green-600 to-emerald-700 p-8 rounded-2xl text-white">
+            <div className="space-y-6">
+              <div className="bg-gradient-to-br from-emerald-600 to-teal-700 p-8 rounded-2xl text-white">
                 <div className="flex justify-center mb-6">
-                  <Heart className="w-8 h-8 text-white stroke-1" />
+                  <div className="bg-white/20 p-3 rounded-full">
+                    <Heart className="w-6 h-6 text-white" />
+                  </div>
                 </div>
-                <h3 className="text-2xl font-light mb-6 text-center">Community Love</h3>
-                <p className="text-green-100 text-center font-light leading-relaxed">
-                  "A sacred space where souls connect authentically. The wisdom shared here has transformed my relationship with Mother Earth and myself."
+                <h3 className="text-2xl font-semibold mb-6 text-center">What Our Members Say</h3>
+                <p className="text-emerald-100 text-center leading-relaxed text-lg">
+                  "This community has completely changed how I approach sustainable living. The support and knowledge sharing is incredible!"
                 </p>
                 <div className="text-center mt-6">
-                  <div className="font-light text-green-100">— Luna Starweaver</div>
+                  <div className="font-medium text-emerald-100">— Sarah Johnson</div>
+                  <div className="text-sm text-emerald-200">Community Member since 2023</div>
                 </div>
               </div>
 
               {/* Additional testimonials */}
               <div className="space-y-4">
-                <div className="bg-white/60 backdrop-blur-sm p-6 rounded-2xl shadow-sm border border-blue-50">
+                <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
                   <div className="flex items-center gap-4 mb-4">
-                    <div className="w-12 h-12 bg-gradient-to-br from-blue-400 to-blue-500 rounded-full flex items-center justify-center">
-                      <Waves className="w-6 h-6 text-white stroke-1" />
+                    <div className="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center">
+                      <Waves className="w-6 h-6 text-white" />
                     </div>
                     <div>
-                      <div className="font-light text-gray-800">Ocean Dreamer</div>
-                      <div className="text-sm text-gray-500 font-light">Sacred Circle Member</div>
+                      <div className="font-semibold text-gray-900">Mike Chen</div>
+                      <div className="text-sm text-gray-500">Active Member</div>
                     </div>
                   </div>
-                  <p className="text-gray-600 font-light italic">
-                    "Found my tribe here! The gatherings and workshops have connected me with beautiful souls who share my values. Pure magic! ✨"
+                  <p className="text-gray-600 italic">
+                    "The workshops and community events have been game-changing. I've learned so much about sustainable living!"
                   </p>
                 </div>
 
-                <div className="bg-white/60 backdrop-blur-sm p-6 rounded-2xl shadow-sm border border-amber-50">
+                <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
                   <div className="flex items-center gap-4 mb-4">
-                    <div className="w-12 h-12 bg-gradient-to-br from-amber-400 to-orange-500 rounded-full flex items-center justify-center">
-                      <Sun className="w-6 h-6 text-white stroke-1" />
+                    <div className="w-12 h-12 bg-amber-500 rounded-full flex items-center justify-center">
+                      <Sun className="w-6 h-6 text-white" />
                     </div>
                     <div>
-                      <div className="font-light text-gray-800">Golden Spirit</div>
-                      <div className="text-sm text-gray-500 font-light">Sacred Circle Member</div>
+                      <div className="font-semibold text-gray-900">Emma Rodriguez</div>
+                      <div className="text-sm text-gray-500">Long-time Member</div>
                     </div>
                   </div>
-                  <p className="text-gray-600 font-light italic">
-                    "The wisdom shared in these circles has guided my journey toward conscious living. Grateful for this peaceful sanctuary! 🌿"
+                  <p className="text-gray-600 italic">
+                    "This community has been instrumental in my sustainable living journey. The support is amazing!"
                   </p>
                 </div>
               </div>
 
-              <button className="w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white px-8 py-4 rounded-full text-lg font-light hover:shadow-lg transition-all transform hover:scale-105">
-                Join Our Sacred Circle
+              <button className="w-full bg-blue-600 text-white px-8 py-4 rounded-xl text-lg font-semibold hover:bg-blue-700 transition-all shadow-lg hover:shadow-xl">
+                Join Our Community
               </button>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Sacred Products Section */}
-      <section id="products" className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-green-50 to-emerald-50">
+      {/* Products Section */}
+      <section id="products" className="py-24 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <div className="flex justify-center mb-4">
-              <Heart className="w-12 h-12 text-green-600 stroke-1" />
+          <div className="text-center mb-20">
+            <div className="mb-6">
+              <span className="inline-flex items-center gap-2 bg-emerald-50 text-emerald-700 px-4 py-2 rounded-full text-sm font-medium border border-emerald-200">
+                <ShoppingCart className="w-4 h-4" />
+                Sustainable Products
+              </span>
             </div>
-            <h2 className="text-4xl md:text-5xl font-light text-gray-800 mb-6">
-              Sacred Essentials
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+              Eco-Friendly Essentials
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto font-light">
-              Discover earth-friendly products that align with your conscious lifestyle
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Discover premium sustainable products that align with your conscious lifestyle
             </p>
           </div>
 
           {/* Product Categories */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
             {[
               {
-                title: "Meditation & Mindfulness",
-                description: "Sacred tools for inner peace",
+                title: "Wellness & Mindfulness",
+                description: "Tools for mental well-being",
                 image: "https://images.pexels.com/photos/3775121/pexels-photo-3775121.jpeg?auto=compress&cs=tinysrgb&w=600",
                 count: "47 items",
                 icon: Sun
               },
               {
                 title: "Natural Beauty",
-                description: "Pure, earth-sourced essentials",
+                description: "Clean, organic beauty products",
                 image: "https://images.pexels.com/photos/4735905/pexels-photo-4735905.jpeg?auto=compress&cs=tinysrgb&w=600",
                 count: "32 items",
                 icon: Flower
               },
               {
                 title: "Sustainable Living",
-                description: "Zero-waste lifestyle essentials",
+                description: "Eco-friendly home essentials",
                 image: "https://images.pexels.com/photos/4099123/pexels-photo-4099123.jpeg?auto=compress&cs=tinysrgb&w=600",
                 count: "28 items",
                 icon: Recycle
               },
               {
-                title: "Sacred Spaces",
-                description: "Create your peaceful sanctuary",
+                title: "Home & Decor",
+                description: "Sustainable home decoration",
                 image: "https://images.pexels.com/photos/3951626/pexels-photo-3951626.jpeg?auto=compress&cs=tinysrgb&w=600",
                 count: "19 items",
                 icon: TreePine
               }
             ].map((category, index) => (
-              <div key={index} className="bg-white/80 backdrop-blur-sm rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all transform hover:-translate-y-1 group border border-green-100">
+              <div key={index} className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 group border border-gray-100">
                 <div className="relative">
                   <img 
                     src={category.image} 
                     alt={category.title}
                     className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
                   <div className="absolute bottom-4 left-4 right-4">
                     <div className="flex items-center justify-between">
-                      <div className="bg-white/90 backdrop-blur-sm p-2 rounded-full">
-                        <category.icon className="w-5 h-5 text-green-600 stroke-1" />
+                      <div className="bg-white/95 backdrop-blur-sm p-2 rounded-lg shadow-sm">
+                        <category.icon className="w-5 h-5 text-emerald-600" />
                       </div>
-                      <span className="text-white text-sm font-light bg-black/30 backdrop-blur-sm px-3 py-1 rounded-full">
+                      <span className="text-white text-sm font-medium bg-black/40 backdrop-blur-sm px-3 py-1.5 rounded-lg">
                         {category.count}
                       </span>
                     </div>
                   </div>
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-light text-gray-800 mb-2 group-hover:text-green-700 transition-colors">
+                  <h3 className="text-xl font-semibold text-gray-900 mb-2 group-hover:text-emerald-700 transition-colors">
                     {category.title}
                   </h3>
-                  <p className="text-gray-600 font-light mb-4">{category.description}</p>
-                  <button className="w-full bg-gradient-to-r from-green-600 to-emerald-600 text-white py-2 rounded-lg font-light hover:shadow-md transition-all">
-                    Explore Collection
+                  <p className="text-gray-600 mb-4">{category.description}</p>
+                  <button className="w-full bg-emerald-600 text-white py-3 rounded-lg font-semibold hover:bg-emerald-700 transition-all shadow-sm">
+                    Browse Collection
                   </button>
                 </div>
               </div>
@@ -589,24 +578,24 @@ function App() {
           <AffiliateDisclosure />
 
           {/* Search Bar */}
-          <div className="mb-8 flex justify-center">
+          <div className="mb-12 flex justify-center">
             <SearchBar 
               onSearch={handleSearch}
-              placeholder="Search sacred products and wisdom..."
-              className="max-w-md w-full"
+              placeholder="Search sustainable products..."
+              className="max-w-lg w-full"
             />
           </div>
 
           {/* Search Results */}
           {showSearchResults && (
-            <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-sm border border-green-100 mb-8">
-              <h3 className="text-2xl font-light text-gray-800 mb-6">
+            <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 mb-12">
+              <h3 className="text-2xl font-semibold text-gray-900 mb-8">
                 Search Results for "{searchTerm}"
               </h3>
               {searchResults.length > 0 ? (
                 <div className="grid md:grid-cols-3 gap-8">
                   {searchResults.map((product) => (
-                    <div key={product.id} className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all group">
+                    <div key={product.id} className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 group border border-gray-100">
                       <div className="relative">
                         <img 
                           src={product.image} 
@@ -615,41 +604,41 @@ function App() {
                         />
                         {product.originalPrice && (
                           <div className="absolute top-4 left-4">
-                            <span className="bg-green-600 text-white px-3 py-1 rounded-full text-sm font-light">
+                            <span className="bg-emerald-600 text-white px-3 py-1.5 rounded-lg text-sm font-medium shadow-sm">
                               Save {Math.round(((parseFloat(product.originalPrice.replace('$', '')) - parseFloat(product.price.replace('$', ''))) / parseFloat(product.originalPrice.replace('$', ''))) * 100)}%
                             </span>
                           </div>
                         )}
                         <div className="absolute top-4 right-4">
-                          <button className="bg-white/90 backdrop-blur-sm p-2 rounded-full hover:bg-white transition-colors">
-                            <Heart className="w-4 h-4 text-gray-600 stroke-1" />
+                          <button className="bg-white/95 backdrop-blur-sm p-2 rounded-lg hover:bg-white transition-colors shadow-sm">
+                            <Heart className="w-4 h-4 text-gray-600" />
                           </button>
                         </div>
                       </div>
                       <div className="p-6">
-                        <h4 className="text-lg font-light text-gray-800 mb-2">{product.name}</h4>
-                        <p className="text-gray-600 text-sm mb-3 font-light">{product.description}</p>
+                        <h4 className="text-lg font-semibold text-gray-900 mb-2">{product.name}</h4>
+                        <p className="text-gray-600 text-sm mb-3">{product.description}</p>
                         <div className="flex items-center gap-2 mb-3">
                           <div className="flex items-center">
                             {[...Array(5)].map((_, i) => (
-                              <Star key={i} className={`w-4 h-4 ${i < Math.floor(product.rating) ? 'text-amber-400 fill-current' : 'text-gray-300'} stroke-1`} />
+                              <Star key={i} className={`w-4 h-4 ${i < Math.floor(product.rating) ? 'text-amber-400 fill-current' : 'text-gray-300'}`} />
                             ))}
                           </div>
-                          <span className="text-sm text-gray-500 font-light">({product.reviews})</span>
+                          <span className="text-sm text-gray-500">({product.reviews})</span>
                         </div>
                         <div className="flex items-center justify-between mb-4">
                           <div className="flex items-center gap-2">
-                            <span className="text-2xl font-light text-green-600">{product.price}</span>
+                            <span className="text-2xl font-bold text-emerald-600">{product.price}</span>
                             {product.originalPrice && (
-                              <span className="text-sm text-gray-500 line-through font-light">{product.originalPrice}</span>
+                              <span className="text-sm text-gray-500 line-through">{product.originalPrice}</span>
                             )}
                           </div>
                         </div>
                         <button 
                           onClick={() => handleAffiliateClick(product)}
-                          className="w-full bg-gradient-to-r from-green-600 to-emerald-600 text-white py-3 rounded-lg font-light hover:shadow-md transition-all"
+                          className="w-full bg-emerald-600 text-white py-3 rounded-lg font-semibold hover:bg-emerald-700 transition-all shadow-sm"
                         >
-                          Add to Sacred Collection
+                          Add to Cart
                         </button>
                       </div>
                     </div>
@@ -665,8 +654,8 @@ function App() {
           )}
 
           {/* Featured Products */}
-          <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-sm border border-green-100">
-            <h3 className="text-2xl font-light text-gray-800 mb-8 text-center">Community Favorites</h3>
+          <div className="bg-gray-50 rounded-2xl p-8">
+            <h3 className="text-2xl font-semibold text-gray-900 mb-8 text-center">Featured Products</h3>
             <div className="grid md:grid-cols-3 gap-8">
               {getFeaturedProducts().map((product) => (
                 <div key={product.id} className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all group">
@@ -723,80 +712,83 @@ function App() {
       </section>
 
       {/* Educational Resources Section */}
-      <section id="education" className="py-20 px-4 sm:px-6 lg:px-8 bg-white/60 backdrop-blur-sm">
+      <section id="education" className="py-24 px-4 sm:px-6 lg:px-8 bg-gray-50">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <div className="flex justify-center mb-4">
-              <BookOpen className="w-12 h-12 text-amber-600 stroke-1" />
+          <div className="text-center mb-20">
+            <div className="mb-6">
+              <span className="inline-flex items-center gap-2 bg-amber-50 text-amber-700 px-4 py-2 rounded-full text-sm font-medium border border-amber-200">
+                <BookOpen className="w-4 h-4" />
+                Learning Resources
+              </span>
             </div>
-            <h2 className="text-4xl md:text-5xl font-light text-gray-800 mb-6">
-              Ancient Wisdom, Modern Living
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+              Learn & Grow
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto font-light">
-              Access sacred teachings, mindful practices, and earth-conscious guidance
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Access expert courses, workshops, and resources for sustainable living
             </p>
           </div>
 
           <div className="grid lg:grid-cols-3 gap-8 mb-16">
             {/* Learning Paths */}
             <div className="lg:col-span-2">
-              <h3 className="text-2xl font-light text-gray-800 mb-6">Sacred Learning Paths</h3>
+              <h3 className="text-2xl font-semibold text-gray-900 mb-8">Learning Paths</h3>
               <div className="space-y-6">
                 {[
                   {
-                    title: "Earth-Conscious Living",
-                    description: "Complete journey to harmonious living, mindful consumption, and earth stewardship",
+                    title: "Sustainable Living Basics",
+                    description: "Complete guide to eco-friendly living, mindful consumption, and environmental stewardship",
                     modules: 12,
                     duration: "6 weeks",
-                    level: "All Souls",
-                    color: "from-green-500 to-emerald-600",
+                    level: "Beginner",
+                    color: "from-emerald-500 to-teal-600",
                     icon: Leaf
                   },
                   {
-                    title: "Inner Peace & Meditation",
-                    description: "Cultivate serenity, emotional balance, and spiritual awareness through timeless practices",
+                    title: "Mindfulness & Wellness",
+                    description: "Develop mental clarity, emotional balance, and overall well-being through proven practices",
                     modules: 8,
                     duration: "4 weeks",
-                    level: "All Souls",
+                    level: "All Levels",
                     color: "from-blue-500 to-indigo-600",
                     icon: Sun
                   },
                   {
-                    title: "Sacred Crafts & Creation",
-                    description: "Transform materials with love, express creativity, and honor the cycle of renewal",
+                    title: "DIY & Upcycling",
+                    description: "Learn creative ways to repurpose materials and create beautiful, sustainable items",
                     modules: 15,
                     duration: "8 weeks",
-                    level: "All Souls",
+                    level: "Intermediate",
                     color: "from-amber-500 to-orange-600",
                     icon: Flower
                   }
                 ].map((path, index) => (
-                  <div key={index} className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-sm hover:shadow-md transition-all group border border-green-50">
+                  <div key={index} className="bg-white p-6 rounded-2xl shadow-sm hover:shadow-md transition-all group border border-gray-100">
                     <div className="flex items-start gap-4">
-                      <div className={`bg-gradient-to-br ${path.color} p-3 rounded-full group-hover:scale-110 transition-transform`}>
-                        <path.icon className="w-6 h-6 text-white stroke-1" />
+                      <div className={`bg-gradient-to-br ${path.color} p-3 rounded-xl group-hover:scale-105 transition-transform shadow-sm`}>
+                        <path.icon className="w-6 h-6 text-white" />
                       </div>
                       <div className="flex-1">
                         <div className="flex items-center justify-between mb-2">
-                          <h4 className="text-xl font-light text-gray-800">{path.title}</h4>
-                          <span className="bg-green-50 text-green-700 px-3 py-1 rounded-full text-sm font-light border border-green-100">
+                          <h4 className="text-xl font-semibold text-gray-900">{path.title}</h4>
+                          <span className="bg-gray-100 text-gray-700 px-3 py-1.5 rounded-lg text-sm font-medium">
                             {path.level}
                           </span>
                         </div>
-                        <p className="text-gray-600 mb-4 font-light">{path.description}</p>
-                        <div className="flex items-center gap-4 text-sm text-gray-500 mb-4 font-light">
+                        <p className="text-gray-600 mb-4">{path.description}</p>
+                        <div className="flex items-center gap-4 text-sm text-gray-500 mb-4">
                           <div className="flex items-center gap-1">
-                            <BookOpen className="w-4 h-4 stroke-1" />
-                            {path.modules} teachings
+                            <BookOpen className="w-4 h-4" />
+                            {path.modules} lessons
                           </div>
                           <div className="flex items-center gap-1">
-                            <Clock className="w-4 h-4 stroke-1" />
+                            <Clock className="w-4 h-4" />
                             {path.duration}
                           </div>
                         </div>
-                        <button className="text-green-600 font-light hover:text-green-800 transition-colors flex items-center gap-1">
-                          Begin Journey
-                          <ArrowRight className="w-4 h-4 stroke-1" />
+                        <button className="text-emerald-600 font-semibold hover:text-emerald-700 transition-colors flex items-center gap-1 group/btn">
+                          Start Learning
+                          <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
                         </button>
                       </div>
                     </div>
@@ -805,54 +797,54 @@ function App() {
               </div>
             </div>
 
-            {/* Upcoming Gatherings */}
+            {/* Upcoming Events */}
             <div>
-              <h3 className="text-2xl font-light text-gray-800 mb-6">Sacred Gatherings</h3>
+              <h3 className="text-2xl font-semibold text-gray-900 mb-8">Upcoming Events</h3>
               <div className="space-y-4">
                 {[
                   {
-                    title: "Earth-Friendly Kitchen Wisdom",
+                    title: "Sustainable Cooking Workshop",
                     date: "Tomorrow, 7 PM EST",
-                    host: "Chef Gaia",
-                    type: "Virtual Circle"
+                    host: "Chef Maria",
+                    type: "Virtual Workshop"
                   },
                   {
-                    title: "Crystal Energy Workshop",
+                    title: "Mindfulness Meditation",
                     date: "Friday, 6 PM EST",
-                    host: "Crystal Keeper",
-                    type: "Sacred Practice"
+                    host: "Dr. Sarah Lee",
+                    type: "Wellness Session"
                   },
                   {
-                    title: "Natural Beauty Alchemy",
+                    title: "DIY Natural Skincare",
                     date: "Saturday, 3 PM EST",
-                    host: "Earth Beauty",
-                    type: "Craft Circle"
+                    host: "Emma Green",
+                    type: "DIY Workshop"
                   },
                   {
-                    title: "Meditation for Inner Peace",
+                    title: "Zero Waste Living Tips",
                     date: "Sunday, 5 PM EST",
-                    host: "Peaceful Soul",
-                    type: "Mindful Practice"
+                    host: "Alex Chen",
+                    type: "Educational Session"
                   }
-                ].map((gathering, index) => (
-                  <div key={index} className="bg-white/80 backdrop-blur-sm p-4 rounded-xl shadow-sm hover:shadow-md transition-all border border-blue-50">
-                    <h4 className="font-light text-gray-800 mb-2">{gathering.title}</h4>
-                    <div className="text-sm text-gray-500 space-y-1 font-light">
+                ].map((event, index) => (
+                  <div key={index} className="bg-white p-4 rounded-xl shadow-sm hover:shadow-md transition-all border border-gray-100">
+                    <h4 className="font-semibold text-gray-900 mb-2">{event.title}</h4>
+                    <div className="text-sm text-gray-500 space-y-1">
                       <div className="flex items-center gap-2">
-                        <Calendar className="w-4 h-4 stroke-1" />
-                        {gathering.date}
+                        <Calendar className="w-4 h-4" />
+                        {event.date}
                       </div>
                       <div className="flex items-center gap-2">
-                        <Feather className="w-4 h-4 stroke-1" />
-                        {gathering.host}
+                        <Feather className="w-4 h-4" />
+                        {event.host}
                       </div>
                       <div className="flex items-center gap-2">
-                        <Star className="w-4 h-4 stroke-1" />
-                        {gathering.type}
+                        <Star className="w-4 h-4" />
+                        {event.type}
                       </div>
                     </div>
-                    <button className="w-full mt-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white py-2 rounded-lg text-sm font-light hover:shadow-md transition-all">
-                      Join Circle
+                    <button className="w-full mt-3 bg-blue-600 text-white py-2.5 rounded-lg text-sm font-semibold hover:bg-blue-700 transition-all shadow-sm">
+                      Register Now
                     </button>
                   </div>
                 ))}
@@ -860,42 +852,44 @@ function App() {
             </div>
           </div>
 
-          {/* Sacred Resources */}
-          <div className="bg-gradient-to-br from-green-600 to-emerald-700 p-8 rounded-2xl text-white">
+          {/* Free Resources */}
+          <div className="bg-gradient-to-br from-emerald-600 to-teal-700 p-8 rounded-2xl text-white">
             <div className="flex justify-center mb-6">
-              <Download className="w-8 h-8 text-white stroke-1" />
+              <div className="bg-white/20 p-3 rounded-xl">
+                <Download className="w-6 h-6 text-white" />
+              </div>
             </div>
-            <h3 className="text-2xl font-light mb-6 text-center">Sacred Resources</h3>
+            <h3 className="text-2xl font-semibold mb-6 text-center">Free Resources</h3>
             <div className="grid md:grid-cols-3 gap-6">
               {[
                 {
-                  title: "Earth-Conscious Living Guide",
-                  description: "100+ gentle practices for harmonious living",
-                  downloads: "12.5K souls",
+                  title: "Sustainable Living Guide",
+                  description: "100+ practical tips for eco-friendly living",
+                  downloads: "12.5K downloads",
                   icon: CheckCircle
                 },
                 {
-                  title: "Meditation Journey for Beginners",
-                  description: "Gentle introduction to inner peace practices",
-                  downloads: "8.2K souls",
+                  title: "Mindfulness Starter Kit",
+                  description: "Essential practices for daily mindfulness",
+                  downloads: "8.2K downloads",
                   icon: Sun
                 },
                 {
-                  title: "Natural Home Alchemy",
-                  description: "Sacred recipes for pure, loving home care",
-                  downloads: "15.7K souls",
+                  title: "DIY Natural Cleaning Guide",
+                  description: "Safe, effective recipes for home cleaning",
+                  downloads: "15.7K downloads",
                   icon: Droplets
                 }
               ].map((resource, index) => (
-                <div key={index} className="bg-white/10 backdrop-blur-sm p-6 rounded-xl hover:bg-white/20 transition-all">
-                  <resource.icon className="w-8 h-8 text-white mb-4 stroke-1" />
-                  <h4 className="text-lg font-light mb-2">{resource.title}</h4>
-                  <p className="text-green-100 text-sm mb-4 font-light">{resource.description}</p>
+                <div key={index} className="bg-white/15 backdrop-blur-sm p-6 rounded-xl hover:bg-white/25 transition-all">
+                  <resource.icon className="w-8 h-8 text-white mb-4" />
+                  <h4 className="text-lg font-semibold mb-2">{resource.title}</h4>
+                  <p className="text-emerald-100 text-sm mb-4">{resource.description}</p>
                   <div className="flex items-center justify-between">
-                    <span className="text-sm text-green-200 font-light">{resource.downloads}</span>
-                    <button className="flex items-center gap-2 bg-white text-green-700 px-4 py-2 rounded-lg text-sm font-light hover:bg-green-50 transition-colors">
-                      <Download className="w-4 h-4 stroke-1" />
-                      Receive
+                    <span className="text-sm text-emerald-200">{resource.downloads}</span>
+                    <button className="flex items-center gap-2 bg-white text-emerald-700 px-4 py-2.5 rounded-lg text-sm font-semibold hover:bg-emerald-50 transition-colors shadow-sm">
+                      <Download className="w-4 h-4" />
+                      Download
                     </button>
                   </div>
                 </div>
@@ -906,65 +900,54 @@ function App() {
       </section>
 
       {/* Newsletter Section */}
-      <section id="newsletter" className="py-20 px-4 sm:px-6 lg:px-8 relative">
-        {/* Background decorative elements */}
-        <div className="absolute top-20 left-20 w-24 h-24 opacity-5">
-          <Flower className="w-full h-full text-amber-600 stroke-1" />
-        </div>
-        <div className="absolute bottom-20 right-20 w-20 h-20 opacity-5">
-          <Heart className="w-full h-full text-green-600 stroke-1" />
-        </div>
-        
+      <section id="newsletter" className="py-24 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-4xl mx-auto text-center">
-          <div className="relative">
-            <div className="absolute inset-0 bg-gradient-to-br from-green-600 to-emerald-700 rounded-3xl opacity-10"></div>
-            <div className="relative bg-white/80 backdrop-blur-sm p-12 rounded-3xl shadow-lg border border-green-100">
-              <div className="flex justify-center mb-6">
-                <div className="bg-gradient-to-br from-green-600 to-emerald-700 p-4 rounded-full">
-                  <Mail className="w-8 h-8 text-white stroke-1" />
-                </div>
+          <div className="bg-gradient-to-br from-emerald-50 to-teal-50 p-12 rounded-3xl border border-emerald-100">
+            <div className="flex justify-center mb-6">
+              <div className="bg-emerald-600 p-4 rounded-2xl shadow-lg">
+                <Mail className="w-8 h-8 text-white" />
               </div>
-              
-              <h2 className="text-4xl font-light text-gray-800 mb-6">
-                The Hippie Digest
-              </h2>
-              <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto font-light leading-relaxed">
-                Receive weekly earth wisdom, community love, conscious living inspiration, and sacred teachings 
-                delivered to your heart. Join our circle of mindful souls.
-              </p>
+            </div>
+            
+            <h2 className="text-4xl font-bold text-gray-900 mb-6">
+              Stay Connected
+            </h2>
+            <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto leading-relaxed">
+              Get weekly tips, exclusive content, and updates about sustainable living 
+              delivered straight to your inbox. Join our community of conscious consumers.
+            </p>
 
-              <form onSubmit={handleNewsletterSignup} className="max-w-md mx-auto">
-                <div className="flex gap-4">
-                  <input
-                    type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    placeholder="Enter your sacred email"
-                    className="flex-1 px-6 py-4 rounded-full border border-green-200 focus:outline-none focus:ring-2 focus:ring-green-600 focus:border-transparent text-lg font-light bg-white/90 backdrop-blur-sm"
-                    required
-                  />
-                  <button
-                    type="submit"
-                    className="bg-gradient-to-r from-green-600 to-emerald-600 text-white px-8 py-4 rounded-full text-lg font-light hover:shadow-lg transition-all transform hover:scale-105 whitespace-nowrap"
-                  >
-                    Join Circle
-                  </button>
-                </div>
-              </form>
+            <form onSubmit={handleNewsletterSignup} className="max-w-lg mx-auto">
+              <div className="flex gap-3">
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="Enter your email address"
+                  className="flex-1 px-6 py-4 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-emerald-600 focus:border-transparent text-lg bg-white shadow-sm"
+                  required
+                />
+                <button
+                  type="submit"
+                  className="bg-emerald-600 text-white px-8 py-4 rounded-xl text-lg font-semibold hover:bg-emerald-700 transition-all shadow-lg hover:shadow-xl whitespace-nowrap"
+                >
+                  Subscribe
+                </button>
+              </div>
+            </form>
 
-              <div className="flex items-center justify-center gap-6 mt-6 text-sm text-gray-500 font-light">
-                <div className="flex items-center gap-1">
-                  <CheckCircle className="w-4 h-4 text-green-500 stroke-1" />
-                  Pure intentions
-                </div>
-                <div className="flex items-center gap-1">
-                  <CheckCircle className="w-4 h-4 text-green-500 stroke-1" />
-                  Leave anytime
-                </div>
-                <div className="flex items-center gap-1">
-                  <CheckCircle className="w-4 h-4 text-green-500 stroke-1" />
-                  Weekly wisdom
-                </div>
+            <div className="flex items-center justify-center gap-6 mt-6 text-sm text-gray-500">
+              <div className="flex items-center gap-1">
+                <CheckCircle className="w-4 h-4 text-emerald-500" />
+                No spam ever
+              </div>
+              <div className="flex items-center gap-1">
+                <CheckCircle className="w-4 h-4 text-emerald-500" />
+                Unsubscribe anytime
+              </div>
+              <div className="flex items-center gap-1">
+                <CheckCircle className="w-4 h-4 text-emerald-500" />
+                Weekly updates
               </div>
             </div>
           </div>
@@ -972,71 +955,70 @@ function App() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-gradient-to-br from-gray-800 to-gray-900 text-white py-16 px-4 sm:px-6 lg:px-8">
+      <footer className="bg-gray-900 text-white py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-4 gap-8 mb-12">
             {/* Brand */}
             <div className="md:col-span-2">
               <div className="flex items-center space-x-3 mb-6">
-                <div className="w-10 h-10 bg-gradient-to-br from-green-600 to-emerald-700 rounded-full flex items-center justify-center">
-                  <Leaf className="w-6 h-6 text-white stroke-1" />
+                <div className="w-10 h-10 bg-emerald-600 rounded-xl flex items-center justify-center">
+                  <Leaf className="w-6 h-6 text-white" />
                 </div>
-                <span className="text-2xl font-light">HippieStuff</span>
+                <span className="text-2xl font-semibold">HippieStuff</span>
               </div>
-              <p className="text-gray-300 text-lg leading-relaxed max-w-md font-light">
-                Connecting conscious souls worldwide through authentic wisdom, 
-                meaningful community, and transformative practices. Spreading peace, 
-                love, and earth-conscious living one heart at a time.
+              <p className="text-gray-300 text-lg leading-relaxed max-w-md">
+                Your trusted partner for sustainable living. We connect conscious consumers 
+                with premium eco-friendly products and educational resources for a better world.
               </p>
               <div className="flex space-x-4 mt-6">
-                <button className="bg-gray-700 p-3 rounded-full hover:bg-green-600 transition-colors">
-                  <Instagram className="w-5 h-5 stroke-1" />
+                <button className="bg-gray-800 p-3 rounded-lg hover:bg-emerald-600 transition-colors">
+                  <Instagram className="w-5 h-5" />
                 </button>
-                <button className="bg-gray-700 p-3 rounded-full hover:bg-red-600 transition-colors">
-                  <Youtube className="w-5 h-5 stroke-1" />
+                <button className="bg-gray-800 p-3 rounded-lg hover:bg-red-600 transition-colors">
+                  <Youtube className="w-5 h-5" />
                 </button>
-                <button className="bg-gray-700 p-3 rounded-full hover:bg-blue-600 transition-colors">
-                  <Facebook className="w-5 h-5 stroke-1" />
+                <button className="bg-gray-800 p-3 rounded-lg hover:bg-blue-600 transition-colors">
+                  <Facebook className="w-5 h-5" />
                 </button>
-                <button className="bg-gray-700 p-3 rounded-full hover:bg-blue-400 transition-colors">
-                  <Twitter className="w-5 h-5 stroke-1" />
+                <button className="bg-gray-800 p-3 rounded-lg hover:bg-blue-400 transition-colors">
+                  <Twitter className="w-5 h-5" />
                 </button>
               </div>
             </div>
 
-            {/* Sacred Links */}
+            {/* Quick Links */}
             <div>
-              <h4 className="text-lg font-light mb-6">Sacred Paths</h4>
-              <ul className="space-y-3 text-gray-300 font-light">
-                <li><button onClick={() => scrollToSection('content')} className="hover:text-green-400 transition-colors">Wisdom Library</button></li>
-                <li><button onClick={() => scrollToSection('products')} className="hover:text-green-400 transition-colors">Sacred Shop</button></li>
-                <li><button onClick={() => scrollToSection('community')} className="hover:text-green-400 transition-colors">Sacred Circle</button></li>
-                <li><button onClick={() => scrollToSection('education')} className="hover:text-green-400 transition-colors">Ancient Wisdom</button></li>
-                <li><button onClick={() => scrollToSection('newsletter')} className="hover:text-green-400 transition-colors">Hippie Digest</button></li>
+              <h4 className="text-lg font-semibold mb-6">Quick Links</h4>
+              <ul className="space-y-3 text-gray-300">
+                <li><button onClick={() => scrollToSection('content')} className="hover:text-emerald-400 transition-colors">Articles</button></li>
+                <li><button onClick={() => scrollToSection('products')} className="hover:text-emerald-400 transition-colors">Shop</button></li>
+                <li><button onClick={() => scrollToSection('community')} className="hover:text-emerald-400 transition-colors">Community</button></li>
+                <li><button onClick={() => scrollToSection('education')} className="hover:text-emerald-400 transition-colors">Learn</button></li>
+                <li><button onClick={() => scrollToSection('newsletter')} className="hover:text-emerald-400 transition-colors">Newsletter</button></li>
               </ul>
             </div>
 
             {/* Support */}
             <div>
-              <h4 className="text-lg font-light mb-6">Sacred Support</h4>
-              <ul className="space-y-3 text-gray-300 font-light">
-                <li><a href="#" className="hover:text-green-400 transition-colors">Guidance Center</a></li>
-                <li><a href="#" className="hover:text-green-400 transition-colors">Connect With Us</a></li>
-                <li><a href="#" className="hover:text-green-400 transition-colors">Sacred Privacy</a></li>
-                <li><a href="#" className="hover:text-green-400 transition-colors">Community Guidelines</a></li>
+              <h4 className="text-lg font-semibold mb-6">Support</h4>
+              <ul className="space-y-3 text-gray-300">
+                <li><a href="#" className="hover:text-emerald-400 transition-colors">Help Center</a></li>
+                <li><a href="#" className="hover:text-emerald-400 transition-colors">Contact Us</a></li>
+                <li><a href="#" className="hover:text-emerald-400 transition-colors">Privacy Policy</a></li>
+                <li><a href="#" className="hover:text-emerald-400 transition-colors">Terms of Service</a></li>
               </ul>
             </div>
           </div>
 
-          <div className="border-t border-gray-700 pt-8">
+          <div className="border-t border-gray-800 pt-8">
             <div className="flex flex-col md:flex-row items-center justify-between">
-              <p className="text-gray-400 text-center font-light">
-                © 2025 HippieStuff.com. Created with 🌿 for the conscious community.
+              <p className="text-gray-400 text-center">
+                © 2025 HippieStuff.com. Empowering sustainable living worldwide.
               </p>
-              <div className="flex items-center gap-4 mt-4 md:mt-0 text-gray-400 font-light">
-                <Leaf className="w-4 h-4 stroke-1" />
-                <span>Spreading peace, love & earth wisdom worldwide</span>
-                <Heart className="w-4 h-4 stroke-1" />
+              <div className="flex items-center gap-4 mt-4 md:mt-0 text-gray-400">
+                <Leaf className="w-4 h-4" />
+                <span>Building a better tomorrow, today</span>
+                <Heart className="w-4 h-4" />
               </div>
             </div>
           </div>
