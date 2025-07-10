@@ -96,7 +96,7 @@ function App() {
                 <Leaf className="w-5 h-5 text-white" />
               </div>
               <span className="text-2xl font-semibold text-gray-900">
-                HippieStuff
+                HippiStuff
               </span>
             </div>
 
@@ -964,7 +964,7 @@ function App() {
                 <div className="w-10 h-10 bg-emerald-600 rounded-xl flex items-center justify-center">
                   <Leaf className="w-6 h-6 text-white" />
                 </div>
-                <span className="text-2xl font-semibold">HippieStuff</span>
+                <span className="text-2xl font-semibold">HippiStuff</span>
               </div>
               <p className="text-gray-300 text-lg leading-relaxed max-w-md">
                 Your trusted partner for sustainable living. We connect conscious consumers 
@@ -1013,7 +1013,7 @@ function App() {
           <div className="border-t border-gray-800 pt-8">
             <div className="flex flex-col md:flex-row items-center justify-between">
               <p className="text-gray-400 text-center">
-                © 2025 HippieStuff.com. Empowering sustainable living worldwide.
+                © 2025 HippiStuff.com. Empowering sustainable living worldwide.
               </p>
               <div className="flex items-center gap-4 mt-4 md:mt-0 text-gray-400">
                 <Leaf className="w-4 h-4" />

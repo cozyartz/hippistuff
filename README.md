@@ -1,4 +1,4 @@
-# HippieStuff 🌿
+# HippiStuff 🌿
 
 A conscious living affiliate marketing platform built with React, TypeScript, and Tailwind CSS. Connecting earth-conscious souls with sustainable products and ancient wisdom.
 

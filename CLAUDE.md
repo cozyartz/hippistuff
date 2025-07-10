@@ -11,7 +11,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Architecture Overview
 
-This is a React + TypeScript + Vite + Tailwind CSS single-page application for a hippie/earth-conscious lifestyle website called "HippieStuff".
+This is a React + TypeScript + Vite + Tailwind CSS single-page application for a hippie/earth-conscious lifestyle website called "HippiStuff".
 
 ### Key Technologies
 - **React 18** with TypeScript for UI components and type safety

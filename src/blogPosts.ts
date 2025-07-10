@@ -1,4 +1,4 @@
-// Blog posts for HippieStuff
+// Blog posts for HippiStuff
 // Each post is an object with title, date, author, content, and tags
 
 export interface BlogPost {
